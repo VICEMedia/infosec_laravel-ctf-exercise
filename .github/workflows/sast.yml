@@ -370,7 +370,7 @@ jobs:
 
       - uses: returntocorp/semgrep-action@v1
         with:
-          config: r/php
+          config: r/php 
           auditOn: push
           generateSarif: "1"
 
