@@ -2,11 +2,6 @@ name: "SAST"
 
 # Below makes this action run when code is push to the main branch or a pull_requests gets merged with the main branch.
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ main, master ]
   workflow_dispatch:
   #Actions can be scheduled as well, below is an example
   #schedule:
