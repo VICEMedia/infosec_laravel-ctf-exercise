@@ -356,8 +356,8 @@ jobs:
 # If PHP is detected by linguist this job, Psalm, will run on the source code.
   psalm-job:
     name: Psalm (PHP)
-    needs: linguist-job
-    if: needs.linguist-job.outputs.has_php == 'true'
+    #needs: linguist-job
+    #if: needs.linguist-job.outputs.has_php == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -368,6 +368,13 @@ jobs:
         run: |
           (test -d src && echo src exists) || mkdir src
           (test -f composer.json && echo composer.json exists) || echo '{"name": "vice/project","autoload": {"psr-4": {"Vice\\\\Project\\\\": "src/"}},"require": {}}' > composer.json 
+      
+      - name: Install Psalm Laravel Plugin
+        run: |
+          composer require psalm/plugin-laravel && 
+          ls vendor/bin/ &&
+          ls /vendor/bin/
+      
       - name: Psalm
         uses: docker://vimeo/psalm-github-actions
         with:
