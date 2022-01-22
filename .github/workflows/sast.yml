@@ -371,7 +371,7 @@ jobs:
       
       - name: Install Psalm Laravel Plugin
         run: |
-          composer require psalm/plugin-laravel --ignore-platform-reqs && 
+          composer require psalm/plugin-laravel:^1.* --ignore-platform-reqs && 
           ls vendor/bin/ &&
           ls /vendor/bin/
       
