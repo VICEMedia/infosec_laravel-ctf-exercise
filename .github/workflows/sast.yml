@@ -371,7 +371,6 @@ jobs:
       
       - name: Install Psalm Laravel Plugin
         run: |
-          ls vendor/bin/ &&
           ls /vendor/bin/
       
       - name: Psalm
