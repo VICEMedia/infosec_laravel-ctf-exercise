@@ -2,6 +2,8 @@ name: "SAST"
 
 # Below makes this action run when code is push to the main branch or a pull_requests gets merged with the main branch.
 on:
+  push:
+    branches: [ main, master ]
   workflow_dispatch:
   #Actions can be scheduled as well, below is an example
   #schedule:
@@ -366,7 +368,7 @@ jobs:
       - uses: returntocorp/semgrep-action@v1
         with:
           config: r/php 
-          auditOn: push
+          auditOn: push pull_request
           generateSarif: "1"
 
       # Semgrep generates a sarif file for GHAS to analyze. The sarif file is uploaded to GHAS by the code below
